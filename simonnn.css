@@ -1,52 +1,45 @@
-.panell{
-    padding: 200px;
-    margin: 300px ;
+
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
 }
-.red {
-    background-color: red;
+
+h1 {
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+#boto {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 18px;
+    padding: 8px 9px;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    width: 80px;
+    height: 80px;
+
+}
+
+
+.panell {
+    justify-content: center;
+    margin-top: 20px;
+}
+
+button {
     width: 200px;
     height: 200px;
+    border: none;
     border-radius: 40px;
 }
-.green {
-    background-color: green;
-    width: 200px;
-    height: 200px;
-    border-radius: 40px;
-}
-.blue {
-    background-color: blue;
-    width: 200px;
-    height: 200px;
-    border-radius: 40px;
-}
-.orange {
-    background-color: orange;
-    width: 200px;
-    height: 200px;
-    border-radius: 40px;
-}
-.yellow {
-    background-color: yellow;
-    width: 200px;
-    height: 200px;
-    border-radius: 40px;
-}
-.black {
-    background-color: black;
-    width: 200px;
-    height: 200px;
-    border-radius: 40px;
-}
-.violet {
-    background-color: violet;
-    width: 200px;
-    height: 200px;
-    border-radius: 40px;
-}
-.pink {
-    background-color: pink;
-    width: 200px;
-    height: 200px;
-    border-radius: 40px;
-}
+
+.red { background-color: red; }
+.green { background-color: green; }
+.blue { background-color: blue; }
+.orange { background-color: orange; }
+.yellow { background-color: yellow; }
+.black { background-color: black; }
+.violet { background-color: violet; }
+.pink { background-color: pink; }
