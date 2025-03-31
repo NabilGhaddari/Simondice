@@ -8,17 +8,18 @@
     <h1>Simon dice</h1>
     <button id="boto" onclick="inici()"> Inici del joc </button>
 <div class="panell">
-        <button class="red"></button>
-        <button class="green"></button>
-        <button class="blue"></button>
-        <button class="orange"></button>
+        <button class="red" onclick="verificar('red')"></button>
+        <button class="green" onclick="verificar('green')"></button>
+        <button class="blue" onclick="verificar('blue')"></button>
+        <button class="orange" onclick="verificar('orange')"></button>
         <div >
-        <button class="yellow"></button>
-        <button class="black"></button>
-        <button class="violet"></button>
-        <button class="pink"></button>
+        <button class="yellow" onclick="verificar('yellow')"></button>
+        <button class="black" onclick="verificar('black')"></button>
+        <button class="violet" onclick="verificar('violet')"></button>
+        <button class="pink" onclick="verificar('pink')"></button>
     </div>
 </div>
+    <div id="mensaje"></div>
     <script src="index.js">  </script>
 </body>
 </html>
