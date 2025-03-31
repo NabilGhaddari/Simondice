@@ -35,11 +35,27 @@ button {
     border-radius: 40px;
 }
 
-.red { background-color: red; }
-.green { background-color: green; }
-.blue { background-color: blue; }
-.orange { background-color: orange; }
-.yellow { background-color: yellow; }
-.black { background-color: black; }
-.violet { background-color: violet; }
-.pink { background-color: pink; }
+.red {
+    background-color: red;
+}
+.green {
+    background-color: green;
+}
+.blue {
+    background-color: blue;
+}
+.orange {
+    background-color: orange;
+}
+.yellow {
+    background-color: yellow;
+}
+.black {
+    background-color: black;
+}
+.violet {
+    background-color: violet;
+}
+.pink {
+    background-color: pink;
+}
