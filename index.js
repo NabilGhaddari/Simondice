@@ -1,51 +1,58 @@
 const colors = ['red', 'green', 'blue', 'orange', 'yellow', 'black', 'violet', 'pink'];
 let colorsl = [];
-let jugadorpush= [];
+let jugadorpush = [];
+let juegoActivo = false; // Ahora el juego empieza inactivo
 
-function inici(){
+function inici() {
     colorsl = [];
-    jugadorpush= [];
-    document.getElementById("mensaje").textContent = "¡Nou joc! ";
+    jugadorpush = [];
+    juegoActivo = true; // Activamos el juego
     seguentronda();
 }
 
-function seguentronda(){
-    jugadorpush= [];
+
+
+function seguentronda() {
+    if (!juegoActivo) return; // Si el juego no está activo, no hace nada
+
+    jugadorpush = [];
     colorsl.push(colors[Math.floor(Math.random() * colors.length)]);
-    document.getElementById("mensaje").textContent = "Simón dice: Memoriza la secuencia.";
-    mostrar_colors(1000); // Ahora pasamos un valor para 'temps'
+    mostrar_colors();
 }
 
 function verificar(color) {
+    if (!juegoActivo) return; // Si el juego no está activo, no hacer nada
+
     jugadorpush.push(color);
 
     if (jugadorpush[jugadorpush.length - 1] !== colorsl[jugadorpush.length - 1]) {
-        document.getElementById("mensaje").textContent = "¡Fallaste! Reiniciando...";
-        setTimeout(inici, 2000);
+        alert('Has perdut!');
+        juegoActivo = false; // Desactivamos el juego hasta que presione "Inici del joc"
         return;
     }
 
     if (jugadorpush.length === colorsl.length) {
-        document.getElementById("mensaje").textContent = "¡Bien hecho! Siguiente ronda...";
-        setTimeout(seguentronda, 1000);
+        setTimeout(() => {
+            ronda();
+            seguentronda();
+        }, 100);
     }
 }
 
-async function mostrar_colors(temps = 1000) { // Asignamos un valor por defecto
+async function mostrar_colors() {
     for (let i = 0; i < colorsl.length; i++) {
-        document.getElementById("mensaje").textContent = "Mostrando color: " + colorsl[i];
-        await esperar(temps);
+        const color = colorsl[i];
+        const cuadrado = document.getElementById(color);
+        cuadrado.style.opacity = '0.6';
+        await esperar(500);
+        cuadrado.style.opacity = '0.9';
+        await esperar(300);
     }
-    document.getElementById("mensaje").textContent = "Tu turno. Haz clic en los colores en el orden correcto.";
 }
 
 function esperar(milliseconds) {
     return new Promise(resolve => setTimeout(resolve, milliseconds));
 }
-
-// Iniciar el juego al cargar
-inici();
-
 
 
 
