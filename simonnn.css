@@ -1,5 +1,8 @@
 
 body {
+    background-image: url('https://zemper.com/coatzem/uploads/2016/10/fondo-blanco.jpg');
+    background-size: cover;
+    background-position: center;
     text-align: center;
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
@@ -15,11 +18,10 @@ h1 {
     color: white;
     font-size: 18px;
     padding: 8px 9px;
-    border-radius: 10px;
+    border-radius: 90%;
     margin-bottom: 5px;
     width: 80px;
     height: 80px;
-
 }
 
 
@@ -29,10 +31,10 @@ h1 {
 }
 
 button {
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     border: none;
-    border-radius: 40px;
+    border-radius: 50%;
 }
 
 .red {
