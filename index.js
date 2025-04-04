@@ -4,8 +4,8 @@ let rjugador = [];
 let juegoActivo = false;  // Variable que controla si el joc està actiu o no
 let ronda = 1;
 
-const sonidoVictoria = new Audio('sounds/victory.mp3');
-const sonidoDerrota = new Audio('sounds/gameover.mp3');
+const sonidoVictoria = new Audio('sounds/gameover.mp3');
+const sonidoDerrota = new Audio('sounds/victory.mp3');
 
 function inici() {
     colorsl = [];
