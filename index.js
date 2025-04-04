@@ -1,12 +1,15 @@
 const colors = ['red', 'green', 'blue', 'orange', 'yellow', 'black', 'violet', 'pink'];
 let colorsl = [];
-let jugadorpush = [];
+let rjugador = [];
 let juegoActivo = false;  // Variable que controla si el joc està actiu o no
 let ronda = 1;
 
+const sonidoVictoria = new Audio('sounds/victory.mp3');
+const sonidoDerrota = new Audio('sounds/gameover.mp3');
+
 function inici() {
     colorsl = [];
-    jugadorpush = [];
+    rjugador = [];
     ronda = 1;
     juegoActivo = true; // Activa el joc
     actualizarRonda();
@@ -16,7 +19,7 @@ function inici() {
 function seguentronda() {
     if (!juegoActivo) return; // Si el joc no està actiu, no fa res
 
-    jugadorpush = [];
+    rjugador = [];
     colorsl.push(colors[Math.floor(Math.random() * colors.length)]);
     actualizarRonda(); // Actualitza la ronda que es mostra
     mostrar_colors(); // Mostra la seqüència de colors al jugador
@@ -25,17 +28,19 @@ function seguentronda() {
 function verificar(color) {
     if (!juegoActivo) return;
 
-    jugadorpush.push(color); // Afegeix el color seleccionat pel jugador a la seva seqüència
+    rjugador.push(color); // Afegeix el color seleccionat pel jugador a la seva seqüència
     // Compara l'últim color de la seqüència del jugador amb l'últim color de la seqüència del joc
-    if (jugadorpush[jugadorpush.length - 1] !== colorsl[jugadorpush.length - 1]) {
+    if (rjugador[rjugador.length - 1] !== colorsl[rjugador.length - 1]) {
+        sonidoDerrota.play();
         alert(`Has perdut en la Ronda ${ronda}. Intenta de nou.`);
         juegoActivo = false; // Desactiva el joc
         return;
     }
 
-    if (jugadorpush.length === colorsl.length) {
+    if (rjugador.length === colorsl.length) {
+        sonidoVictoria.play();
         ronda++;
-        setTimeout(seguentronda, 2000);
+        setTimeout(seguentronda, 500);
     }
 }
 
