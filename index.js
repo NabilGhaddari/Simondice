@@ -64,3 +64,21 @@ function esperar(milliseconds) {
 function actualizarRonda() {
     document.getElementById("ronda").textContent = `Ronda ${ronda}`;  // Mostra la ronda actual al document HTML
 }
+// Juego automático
+document.getElementById("autoButton").addEventListener("click", async () => {
+    inici(); // Inicia el juego normalmente
+
+    while (juegoActivo) {
+        // Espera a que termine la secuencia del juego
+        await esperar(1000 * colorsl.length); // Tiempo estimado por número de colores
+        for (let i = 0; i < colorsl.length; i++) {
+            if (!juegoActivo) return; // Detiene si se pierde
+            verificar(colorsl[i]);
+            await esperar(500); // Pausa entre jugadas simuladas
+        }
+        await esperar(1000); // Espera antes de la próxima ronda
+    }
+});
+
+
+

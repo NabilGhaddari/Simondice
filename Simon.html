@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,18 +9,23 @@
     <h1>Simon dice</h1>
     <button id="boto" onclick="inici()"> Inici del joc </button>
 <div class="panell">
+    <div class="fila">
         <button id="red" class="red" onclick="verificar('red')"></button>
         <button id="green" class="green" onclick="verificar('green')"></button>
         <button id="blue" class="blue" onclick="verificar('blue')"></button>
+    </div>
+    <div class="fila">
         <button id="orange" class="orange" onclick="verificar('orange')"></button>
-        <div >
+        <button id="ronda" class="ronda" onclick="ronda"></button>
         <button id="yellow" class="yellow" onclick="verificar('yellow')"></button>
+    </div>
+    <div class="fila">
         <button id="black" class="black" onclick="verificar('black')"></button>
         <button id="violet" class="violet" onclick="verificar('violet')"></button>
         <button id="pink" class="pink" onclick="verificar('pink')"></button>
     </div>
 </div>
-    <div id="ronda">Ronda 1</div>
+    <button id="autoButton">Iniciar juego automaticamente</button>
     <div id="mensaje"></div>
     <script src="index.js">  </script>
 </body>

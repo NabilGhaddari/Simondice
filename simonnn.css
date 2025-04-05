@@ -1,63 +1,56 @@
-
 body {
-    background-image: url('https://zemper.com/coatzem/uploads/2016/10/fondo-blanco.jpg');
-    background-size: cover;
-    background-position: center;
+    background-color: #000;
+    color: white;
+    font-family: 'Arial', sans-serif;
     text-align: center;
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
 }
 
 h1 {
-    margin-top: 20px;
-    font-size: 20px;
+    font-size: 25px;
+    margin: 0;
 }
-
-#boto {
-    background-color: #4CAF50;
-    color: white;
-    font-size: 18px;
-    padding: 8px 9px;
-    border-radius: 90%;
-    margin-bottom: 5px;
-    width: 80px;
-    height: 80px;
-}
-
 
 .panell {
-    justify-content: center;
-    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.fila {
+    display: flex;
+    gap: 15px;
 }
 
 button {
-    width: 150px;
-    height: 150px;
+    width: 90px;
+    height: 90px;
     border: none;
-    border-radius: 50%;
+    border-radius: 10px;
 }
 
-.red {
-    background-color: red;
-}
-.green {
-    background-color: green;
-}
-.blue {
-    background-color: blue;
-}
-.orange {
-    background-color: orange;
-}
-.yellow {
-    background-color: yellow;
-}
-.black {
-    background-color: black;
-}
-.violet {
-    background-color: violet;
-}
-.pink {
-    background-color: pink;
+/* Colores */
+.red { background-color: #FF5252; }
+.green { background-color: #4CAF50; }
+.blue { background-color: #4285F4; }
+.orange { background-color: #FF9800; }
+.yellow { background-color: #FFEB3B; }
+.black { background-color: #424242; }
+.violet { background-color: #9C27B0; }
+.pink { background-color: #E91E63; }
+
+
+
+#autoButton {
+    background-color: #607D8B;
+    color: white;
+    font-size: 14px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    margin-top: 30px;
 }
