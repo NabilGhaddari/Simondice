@@ -38,6 +38,7 @@ function verificar(color) {
         soDerrota.play();
         alert(`Has perdut en la Ronda ${ronda}. Intenta de nou.`);
         jocActiu = false; // Desactiva el joc
+        colorsl = [];
         return;
     }
 
