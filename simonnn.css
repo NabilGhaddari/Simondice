@@ -60,6 +60,13 @@ button {
     font-style: italic;
 }
 
+#maximaRonda {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #bbbbbb;
+    font-style: italic;
+}
+
 .ronda {
     width: 90px;
     height: 90px;

@@ -4,6 +4,7 @@ let rjugador = [];
 let jocActiu = false;  // Variable que controla si el joc esta actiu o no
 let ronda = 1;
 let repeticionsDisponibles = 2;
+let maximaRonda = 1;  // Variable per guardar la maxima ronda assolida
 
 const soVictoria = new Audio('sounds/victory.mp3');
 const soDerrota = new Audio('sounds/gameover.mp3');
@@ -12,7 +13,7 @@ function inici() {
     colorsl = [];
     rjugador = [];
     ronda = 1;
-    repeticionsDisponibles = 2;
+    repeticionsDisponibles = 2
     jocActiu = true; // Activa el joc
     actualitzarRonda();
     actualitzarRepeticions();
@@ -43,6 +44,10 @@ function verificar(color) {
     if (rjugador.length === colorsl.length) {
         soVictoria.play();
         ronda++;
+        if (ronda > maximaRonda) {
+            maximaRonda = ronda; // Actualitza la maxima ronda si s'ha assolit una nova maxima
+            actualitzarMaximaRonda(); // Actualitza la maxima ronda a la interfície
+        }
         setTimeout(seguentRonda, 500);
     }
 }
@@ -64,15 +69,6 @@ function esperar(milliseconds) {
     return new Promise(resolve => setTimeout(resolve, milliseconds));
 }
 
-// Funcio que actualitza la ronda a la interfície
-function actualitzarRonda() {
-    document.getElementById("ronda").textContent = `Ronda ${ronda}`;  // Mostra la ronda actual al document HTML
-}
-
-function actualitzarRepeticions() {
-    document.getElementById("repeticions").textContent = `Repeticions disponibles: ${repeticionsDisponibles}`;
-}
-
 function rendir() {
     if (!jocActiu) return;
 
@@ -92,4 +88,17 @@ function repetirSequencia() {
     } else {
         alert("Ja no pots repetir la sequencia!");
     }
+}
+// Funcio que actualitza la ronda a la interfície
+function actualitzarRonda() {
+    document.getElementById("ronda").textContent = `Ronda ${ronda}`;  // Mostra la ronda actual al document HTML
+}
+
+function actualitzarRepeticions() {
+    document.getElementById("repeticions").textContent = `Repeticions disponibles: ${repeticionsDisponibles}`;
+}
+
+// Funció que actualitza la màxima ronda a la interfície
+function actualitzarMaximaRonda() {
+    document.getElementById("maximaRonda").textContent = `Maxima Ronda: ${maximaRonda}`;
 }
