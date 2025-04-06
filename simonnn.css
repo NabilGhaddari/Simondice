@@ -5,12 +5,12 @@ body {
     text-align: center;
     margin: 0;
     padding: 20px;
-    min-height: 100vh;
 }
 
 h1 {
-    font-size: 25px;
-    margin: 0;
+    font-size: 32px;
+    margin-bottom: 10px;
+    color: #ffffff;
 }
 
 .panell {
@@ -18,7 +18,7 @@ h1 {
     flex-direction: column;
     align-items: center;
     gap: 15px;
-    margin: 20px 0;
+    margin: 30px ;
 }
 
 .fila {
@@ -31,9 +31,9 @@ button {
     height: 90px;
     border: none;
     border-radius: 10px;
+    transition: transform 0.2s;
 }
 
-/* Colores */
 .red { background-color: #FF5252; }
 .green { background-color: #4CAF50; }
 .blue { background-color: #4285F4; }
@@ -43,14 +43,31 @@ button {
 .violet { background-color: #9C27B0; }
 .pink { background-color: #E91E63; }
 
-
-
-#autoButton {
-    background-color: #607D8B;
-    color: white;
+#boto, #render, #repetir {
+    background-color: #1e1e1e;
+    color: #fff;
     font-size: 14px;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 8px;
-    margin-top: 30px;
+    padding: 10px 20px;
+    border: 1px;
+    border-radius: 6px;
+    margin: 10px 5px;
+}
+
+#repeticions {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #bbbbbb;
+    font-style: italic;
+}
+
+.ronda {
+    width: 90px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #222;
+    border-radius: 10px;
+    font-size: 18px;
+    color: #fff;
 }

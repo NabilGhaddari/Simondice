@@ -1,84 +1,95 @@
 const colors = ['red', 'green', 'blue', 'orange', 'yellow', 'black', 'violet', 'pink'];
 let colorsl = [];
 let rjugador = [];
-let juegoActivo = false;  // Variable que controla si el joc està actiu o no
+let jocActiu = false;  // Variable que controla si el joc esta actiu o no
 let ronda = 1;
+let repeticionsDisponibles = 2;
 
-const sonidoVictoria = new Audio('sounds/victory.mp3');
-const sonidoDerrota = new Audio('sounds/gameover.mp3');
+const soVictoria = new Audio('sounds/victory.mp3');
+const soDerrota = new Audio('sounds/gameover.mp3');
 
 function inici() {
     colorsl = [];
     rjugador = [];
     ronda = 1;
-    juegoActivo = true; // Activa el joc
-    actualizarRonda();
-    seguentronda();
+    repeticionsDisponibles = 2;
+    jocActiu = true; // Activa el joc
+    actualitzarRonda();
+    actualitzarRepeticions();
+    seguentRonda();
 }
 
-function seguentronda() {
-    if (!juegoActivo) return; // Si el joc no està actiu, no fa res
+function seguentRonda() {
+    if (!jocActiu) return; // Si el joc no esta actiu, no fa res
 
     rjugador = [];
     colorsl.push(colors[Math.floor(Math.random() * colors.length)]);
-    actualizarRonda(); // Actualitza la ronda que es mostra
-    mostrar_colors(); // Mostra la seqüència de colors al jugador
+    actualitzarRonda(); // Actualitza la ronda que es mostra
+    mostrarColors(); // Mostra la sequencia de colors al jugador
 }
 
 function verificar(color) {
-    if (!juegoActivo) return;
+    if (!jocActiu) return;
 
-    rjugador.push(color); // Afegeix el color seleccionat pel jugador a la seva seqüència
-    // Compara l'últim color de la seqüència del jugador amb l'últim color de la seqüència del joc
+    rjugador.push(color); // Afegeix el color seleccionat pel jugador a la seva sequencia
+    // Compara l'ultim color de la sequencia del jugador amb l'ultim color de la sequencia del joc
     if (rjugador[rjugador.length - 1] !== colorsl[rjugador.length - 1]) {
-        sonidoDerrota.play();
+        soDerrota.play();
         alert(`Has perdut en la Ronda ${ronda}. Intenta de nou.`);
-        juegoActivo = false; // Desactiva el joc
+        jocActiu = false; // Desactiva el joc
         return;
     }
 
     if (rjugador.length === colorsl.length) {
-        sonidoVictoria.play();
+        soVictoria.play();
         ronda++;
-        setTimeout(seguentronda, 500);
+        setTimeout(seguentRonda, 500);
     }
 }
 
-async function mostrar_colors() {
+async function mostrarColors() {
     for (let i = 0; i < colorsl.length; i++) {
-        const color = colorsl[i]; // Agafa el color de la seqüència
-        const cuadrado = document.getElementById(color); // Agafa el botó del color corresponent
+        const color = colorsl[i]; // Agafa el color de la sequencia
+        const cuadrat = document.getElementById(color); // Agafa el boto del color corresponent
 
-        cuadrado.style.opacity = '0'; // Fa que el color sigui invisible
+        cuadrat.style.opacity = '0'; // Fa que el color sigui invisible
         await esperar(500); // Espera 500ms abans de mostrar el següent color
-        cuadrado.style.opacity = '1'; // Mostra el color
+        cuadrat.style.opacity = '1'; // Mostra el color
         await esperar(300); // Espera 300ms abans de passar al següent color
     }
 }
 
-// Funció que crea una pausa (espera) durant un temps determinat
+// Funcio que crea una pausa (espera) durant un temps determinat
 function esperar(milliseconds) {
     return new Promise(resolve => setTimeout(resolve, milliseconds));
 }
-// Funció que actualitza la ronda a la interfície
-function actualizarRonda() {
+
+// Funcio que actualitza la ronda a la interfície
+function actualitzarRonda() {
     document.getElementById("ronda").textContent = `Ronda ${ronda}`;  // Mostra la ronda actual al document HTML
 }
-// Juego automático
-document.getElementById("autoButton").addEventListener("click", async () => {
-    inici(); // Inicia el juego normalmente
 
-    while (juegoActivo) {
-        // Espera a que termine la secuencia del juego
-        await esperar(1000 * colorsl.length); // Tiempo estimado por número de colores
-        for (let i = 0; i < colorsl.length; i++) {
-            if (!juegoActivo) return; // Detiene si se pierde
-            verificar(colorsl[i]);
-            await esperar(500); // Pausa entre jugadas simuladas
-        }
-        await esperar(1000); // Espera antes de la próxima ronda
+function actualitzarRepeticions() {
+    document.getElementById("repeticions").textContent = `Repeticions disponibles: ${repeticionsDisponibles}`;
+}
+
+function rendir() {
+    if (!jocActiu) return;
+
+    jocActiu = false; // Deten el joc
+    alert(`T'has rendit en la Ronda ${ronda}. Has abandonat la partida.`);
+
+    colorsl = [];
+    document.getElementById("repetir").disabled = true;
+    document.getElementById("repeticions").textContent = `Repeticions disponibles: 0`;
+}
+
+function repetirSequencia() {
+    if (repeticionsDisponibles > 0) {
+        mostrarColors();
+        repeticionsDisponibles--;
+        actualitzarRepeticions();
+    } else {
+        alert("Ja no pots repetir la sequencia!");
     }
-});
-
-
-
+}

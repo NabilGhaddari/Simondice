@@ -1,13 +1,13 @@
-
 <!DOCTYPE html>
 <html>
 <head>
-    <title id="title"> Simon dice</title>
+    <title id="title">Simon diu</title>
     <link rel="stylesheet" href="simonnn.css">
+    <script src="index.js"></script>
 </head>
 <body>
-    <h1>Simon dice</h1>
-    <button id="boto" onclick="inici()"> Inici del joc </button>
+<h1>Simon diu</h1>
+<button id="boto" onclick="inici()">Inici del joc</button>
 <div class="panell">
     <div class="fila">
         <button id="red" class="red" onclick="verificar('red')"></button>
@@ -25,8 +25,12 @@
         <button id="pink" class="pink" onclick="verificar('pink')"></button>
     </div>
 </div>
-    <button id="autoButton">Iniciar juego automaticamente</button>
-    <div id="mensaje"></div>
-    <script src="index.js">  </script>
+<div>
+    <button id="render" onclick="rendir()">Em rendeixo</button>
+    <button id="repetir" onclick="repetirSequencia()">Repetir sequencia</button>
+</div>
+<div id="mensaje"></div>
+<div id="repeticions">Repeticions disponibles: 2</div>
 </body>
 </html>
+
