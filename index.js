@@ -79,6 +79,7 @@ function rendir() {
     colorsl = [];
     document.getElementById("repetir").disabled = true;
     document.getElementById("repeticions").textContent = `Repeticions disponibles: 0`;
+    soDerrota.play();
 }
 
 function repetirSequencia() {
